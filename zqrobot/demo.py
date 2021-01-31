@@ -31,7 +31,7 @@ def start(update: Update, context: CallbackContext) -> None:
     textStr = '' \
               '[xx](https://goss.cfp.cn/creative/vcg/800/new/VCG211306186617.jpg)' \
               '担保竭诚为你服务，你可以选择以下方式进行担保'
-    update.message.reply_text(textStr,chat_id=[update.message.chat_id,'颜克林'], reply_markup=reply_markup,parse_mode=ParseMode.MARKDOWN)
+    update.message.reply_text(textStr, reply_markup=reply_markup,parse_mode=ParseMode.MARKDOWN)
 
 
 def button(update: Update, context: CallbackContext) -> None:
