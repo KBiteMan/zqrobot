@@ -28,8 +28,8 @@ def start(update: Update, context: CallbackContext) -> None:
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    textStr = '![tool-manager](https://www.zybuluo.com/static/img/toolbar-manager.jpg)' \
-              '<i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享'
+    textStr = '![tool-manager](https://icweiliimg1.pstatp.com/weili/sm/903376869610487821.webp)' \
+              'xx担保竭诚为你服务，你可以选择以下方式进行担保'
     update.message.reply_text(textStr, reply_markup=reply_markup,parse_mode=ParseMode.MARKDOWN)
     update.send
 
