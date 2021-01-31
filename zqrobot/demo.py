@@ -28,7 +28,8 @@ def start(update: Update, context: CallbackContext) -> None:
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    textStr = '[xx](https://t7.baidu.com/it/u=874840036,2689408898&fm=193&f=GIF)' \
+    textStr = '@颜克林' \
+              '[xx](https://t7.baidu.com/it/u=874840036,2689408898&fm=193&f=GIF)' \
               '担保竭诚为你服务，你可以选择以下方式进行担保'
     update.message.reply_text(textStr, reply_markup=reply_markup,parse_mode=ParseMode.MARKDOWN)
 
