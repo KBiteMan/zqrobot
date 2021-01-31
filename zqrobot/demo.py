@@ -8,7 +8,7 @@ Basic example for a bot that uses inline keyboards.
 """
 import logging
 
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, ParseMode
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 
 logging.basicConfig(
@@ -20,15 +20,18 @@ logger = logging.getLogger(__name__)
 def start(update: Update, context: CallbackContext) -> None:
     keyboard = [
         [
-            InlineKeyboardButton("BTC", callback_data='1'),
-            InlineKeyboardButton("USDT", callback_data='2'),
+            InlineKeyboardButton("💎BTC", callback_data='1'),
+            InlineKeyboardButton("💵USDT", callback_data='2'),
         ],
         [InlineKeyboardButton("PayPal", callback_data='3')],
     ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    update.message.reply_text('欢迎使用XX担保，你可以选择以下方式:', reply_markup=reply_markup)
+    textStr = '![tool-manager](https://www.zybuluo.com/static/img/toolbar-manager.jpg)' \
+              '<i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享'
+    update.message.reply_text(textStr, reply_markup=reply_markup,parse_mode=ParseMode.MARKDOWN)
+    update.send
 
 
 def button(update: Update, context: CallbackContext) -> None:
@@ -38,7 +41,7 @@ def button(update: Update, context: CallbackContext) -> None:
     # Some clients may have trouble otherwise. See https://core.telegram.org/bots/api#callbackquery
     query.answer()
 
-    query.edit_message_text(text=f"Selected option: {query.data}")
+    query.edit_message_text(text=f"选择了: {query.data}")
 
 
 def help_command(update: Update, context: CallbackContext) -> None:
